@@ -29,14 +29,6 @@ class Blockchain:
             return False
         self.mempool[tx.tx_hash] = tx
         return True
-    
-    def add_transaction_to_mempool(self, tx: Transaction):
-        if not tx.is_valid():
-            return False
-        if tx.tx_hash in self.mempool:
-            return False
-        self.mempool[tx.tx_hash] = tx
-        return True
 
     def execute_transaction(self, tx: Transaction):
         payload_type = tx.payload.get('type')
